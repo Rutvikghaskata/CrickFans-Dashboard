@@ -1,0 +1,12 @@
+.header-wrapper{
+    display: flex;
+    background-color: #dfdeef50;
+    height:70px;
+    border-radius: 15px;
+    align-items: center;
+    span{
+        font-size: 20px;
+        font-weight: 600;
+        padding-left: 25px;
+    }
+}

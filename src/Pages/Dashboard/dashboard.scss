@@ -55,3 +55,100 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .dashboard-wrapper {
+    border-radius: 10px;
+    .card-container {
+      gap: 20px;
+      width: 75%;
+      height: 70%;
+
+      .top-card,
+      .bottom-card {
+        gap: 20px;
+        .card {
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard-wrapper {
+    border-radius: 10px;
+    .card-container {
+      gap: 20px;
+      width: 85%;
+      height: 65%;
+      .top-card,
+      .bottom-card {
+        gap: 20px;
+        .card {
+          border-radius: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .dashboard-wrapper {
+    border-radius: 10px;
+    .card-container {
+      gap: 0px;
+      width: 80%;
+      height: 100%;
+      overflow:scroll;
+      .top-card,
+      .bottom-card {
+        flex-direction: column;
+        gap: 0px;
+        .card {
+          flex-direction: row;
+          justify-content: unset !important;
+          border-radius: 15px;
+          width: 90%;
+          height: 150px;
+          margin-bottom: 20px;
+        }
+      }
+      .top-card{
+        margin-top: 80px;
+        margin-bottom: 20px;
+      }
+      .bottom-card{
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .dashboard-wrapper {
+    .card-container {
+      width: 95%;
+      .top-card,
+      .bottom-card {
+        .card {
+          border-radius: 15px;
+          width: 90%;
+          height: 150px;
+          margin-bottom: 20px;
+
+          span{
+            font-size: 20px;
+          }
+        }
+      }
+      .top-card{
+        margin-top: 80px;
+        margin-bottom: 20px;
+      }
+      .bottom-card{
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

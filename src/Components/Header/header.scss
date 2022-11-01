@@ -1,12 +1,108 @@
-.header-wrapper{
+.header-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #dfdeef50;
+  height: 70px;
+  border-radius: 15px;
+  align-items: center;
+  padding: 0 25px;
+  transition: all 0.5s ease-in-out;
+  .top-sec {
     display: flex;
-    background-color: #dfdeef50;
-    height:70px;
-    border-radius: 15px;
-    align-items: center;
-    span{
-        font-size: 20px;
-        font-weight: 600;
-        padding-left: 25px;
+    justify-content: space-between;
+    width: 100%;
+    span {
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: 20px;
+      color: #10044a;
     }
+    .menu-section {
+      display: none;
+    }
+  }
+  ul{
+    display: none;
+  }
+}
+@media (max-width: 1200px) {
+  .header-wrapper {
+    height: 60px;
+    padding: 0 20px;
+    border-radius: 10px;
+    .top-sec{
+        span{
+            margin-top: 17px;
+        }
+    }
+  }
+}
+@media (max-width: 870px) {
+  .header-wrapper {
+    align-items: flex-start;
+    padding: 0 ;
+    overflow:hidden;
+    border-radius: 8px;
+    &.menu {
+      height: 220px;
+    }
+    .top-sec {
+        span{
+            margin-left: 13px;
+        }
+      .menu-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 5px;
+        margin: 13px 13px 0 0;
+        cursor: pointer;
+        .icon {
+          color: #10044a;
+          font-size: 25px;
+        }
+      }
+    }
+    ul {
+        display:flex;
+        flex-direction: column;
+        border-radius: 15px;
+        width: 100%;
+        padding: 10px 0;
+        li {
+          padding: 10px;
+          text-align: center;
+          background-color: #fff;
+          margin: 5px 10px;
+          border-radius: 5px;
+          transition: 0.7s ease-in-out;
+          cursor: pointer;
+          .list-item {
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            color: #10044ada;
+            width: 100%;
+            transition: 0.7s ease-in-out;
+          }
+    
+          &.active {
+            background-color: #10044a;
+            box-shadow: 0px 0px 20px 2px #10044a10;
+            .list-item {
+              color: #dfdeef;
+            }
+          }
+        }
+        li:hover {
+          background-color: #10044a;
+          box-shadow: 0px 0px 20px 2px #10044a30;
+          .list-item {
+            color: #dfdeef;
+          }
+        }
+      }
+  }
 }

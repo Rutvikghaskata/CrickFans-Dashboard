@@ -10,7 +10,15 @@ function Header() {
   return (
     <div className={menu ? "header-wrapper menu" : "header-wrapper"}>
       <div className="top-sec">
-        <span>Dashboard</span>
+        <span>
+          {CURRENT_WB_NAME === "dashboard"
+            ? "Dashboard"
+            : CURRENT_WB_NAME === "videos"
+            ? "videos"
+            : CURRENT_WB_NAME === "photos"
+            ? "Photos"
+            : null}
+        </span>
         <div
           className="menu-section"
           onClick={() => {

@@ -12,6 +12,9 @@ import { FaEye } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BsArrowLeft } from "react-icons/bs";
+import { HiPencil } from "react-icons/hi";
+import { IoMdTime, IoMdAddCircle } from "react-icons/io";
+import { BiLinkAlt } from "react-icons/bi";
 
 function GlobalFilter({
   preGlobalFilteredRows,
@@ -245,6 +248,10 @@ function Videos() {
   );
 
   const [screen, setScreen] = React.useState(0);
+  const [disableBtn, setDisableBtn] = React.useState(false);
+
+  const [thumbnail, setThumbnail] = React.useState(null);
+  const fileInput = React.createRef();
   return (
     <div className="videos-wrapper">
       <div
@@ -342,6 +349,73 @@ function Videos() {
               setScreen(0);
             }}
           />
+          <div className="add-video-form">
+            <h2 className="head-title">Add Video</h2>
+            <input
+              style={{ display: "none" }}
+              type="file"
+              className="search-input"
+              placeholder="Search Videos"
+              id="file"
+              ref={fileInput}
+              onChange={(e) => {
+                setThumbnail(fileInput.current.files[0].name);
+              }}
+            />
+            <label
+              htmlFor="file"
+              className={thumbnail ? "select-file selected" : "select-file"}
+            >
+              {thumbnail ? (
+                <div>
+                  <p className="title">Thumbnail</p>
+                  <p className="file-name">{thumbnail}</p>
+                </div>
+              ) : (
+                <>
+                  <IoMdAddCircle size={35} style={{ marginRight: 10 ,marginLeft: 20}} />
+                  Add Thumbnail
+                </>
+              )}
+            </label>
+            <div className={"input-container"}>
+              <HiPencil className={"icon"} />
+              <input type="text" className="search-input" placeholder="Title" />
+            </div>
+            <div className={"input-container"}>
+              <HiPencil className={"icon"} />
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Description"
+              />
+            </div>
+            <div className={"input-container"}>
+              <BiLinkAlt className={"icon"} />
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Youtube link"
+              />
+            </div>
+            <div className={"input-container"}>
+              <IoMdTime className={"icon"} />
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Time-Duration"
+              />
+            </div>
+            <button
+              className={disableBtn ? "submit-btn disable" : "submit-btn"}
+              disable={true}
+              onClick={() => {
+                setScreen(1);
+              }}
+            >
+              SUBMIT
+            </button>
+          </div>
         </div>
       </div>
     </div>

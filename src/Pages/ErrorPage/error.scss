@@ -1,0 +1,21 @@
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #dfdeef50;
+  border-radius: 15px;
+  
+  h1{
+    font-size:100px;
+    color: #10044a;
+    font-weight: 800;
+  }
+  span{
+    font-size:30px;
+    color: #10044a;
+    font-weight: 700;
+  }
+}

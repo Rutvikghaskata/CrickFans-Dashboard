@@ -11,6 +11,8 @@ import {
 import { FaEye } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import { AiOutlineDelete } from "react-icons/ai";
+import { BsArrowLeft } from "react-icons/bs";
+
 function GlobalFilter({
   preGlobalFilteredRows,
   globalFilter,
@@ -68,7 +70,11 @@ function Videos() {
         col6: (
           <div>
             <span>
-              <FaEye size={22} color={"#10044aab"} style={{ marginRight: 10 }} />
+              <FaEye
+                size={22}
+                color={"#10044aab"}
+                style={{ marginRight: 10 }}
+              />
             </span>
             <span>
               <MdEdit size={22} color={"#4a85fb"} style={{ marginRight: 10 }} />
@@ -88,7 +94,11 @@ function Videos() {
         col6: (
           <div>
             <span>
-              <FaEye size={22} color={"#10044aab"} style={{ marginRight: 10 }} />
+              <FaEye
+                size={22}
+                color={"#10044aab"}
+                style={{ marginRight: 10 }}
+              />
             </span>
             <span>
               <MdEdit size={22} color={"#4a85fb"} style={{ marginRight: 10 }} />
@@ -108,7 +118,11 @@ function Videos() {
         col6: (
           <div>
             <span>
-              <FaEye size={22} color={"#10044aab"} style={{ marginRight: 10 }} />
+              <FaEye
+                size={22}
+                color={"#10044aab"}
+                style={{ marginRight: 10 }}
+              />
             </span>
             <span>
               <MdEdit size={22} color={"#4a85fb"} style={{ marginRight: 10 }} />
@@ -128,7 +142,11 @@ function Videos() {
         col6: (
           <div>
             <span>
-              <FaEye size={22} color={"#10044aab"} style={{ marginRight: 10 }} />
+              <FaEye
+                size={22}
+                color={"#10044aab"}
+                style={{ marginRight: 10 }}
+              />
             </span>
             <span>
               <MdEdit size={22} color={"#4a85fb"} style={{ marginRight: 10 }} />
@@ -148,7 +166,11 @@ function Videos() {
         col6: (
           <div>
             <span>
-              <FaEye size={22} color={"#10044aab"} style={{ marginRight: 10 }} />
+              <FaEye
+                size={22}
+                color={"#10044aab"}
+                style={{ marginRight: 10 }}
+              />
             </span>
             <span>
               <MdEdit size={22} color={"#4a85fb"} style={{ marginRight: 10 }} />
@@ -222,46 +244,59 @@ function Videos() {
     useSortBy
   );
 
+  const [screen, setScreen] = React.useState(0);
   return (
     <div className="videos-wrapper">
-      <div className="head-section">
-        <input
-          type="text"
-          className="search-input"
-          placeholder="Search Videos"
-        />
-        <button className="add-button">ADD</button>
-      </div>
-      <div className="table-container">
-        <table {...getTableProps()}>
-          <thead className="table-header">
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                    className="title"
-                  >
-                    {/* <div>
+      <div
+        className={
+          screen === 0 ? "videos-list-section" : "inactive videos-list-section"
+        }
+      >
+        <div className="head-section">
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search Videos"
+          />
+          <button
+            className="add-button"
+            onClick={() => {
+              setScreen(1);
+            }}
+          >
+            ADD
+          </button>
+        </div>
+        <div className="table-container">
+          <table {...getTableProps()}>
+            <thead className="table-header">
+              {headerGroups.map((headerGroup) => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map((column) => (
+                    <th
+                      {...column.getHeaderProps(column.getSortByToggleProps())}
+                      className="title"
+                    >
+                      {/* <div>
                       {column.canFilter ? column.render("Filter") : null}
                     </div> */}
-                    {column.render("Header")}
-                    <span>
-                      {column.isSorted ? (
-                        column.isSortedDesc ? (
-                          <BsArrowDownShort color="#10044a" size={15} />
+                      {column.render("Header")}
+                      <span>
+                        {column.isSorted ? (
+                          column.isSortedDesc ? (
+                            <BsArrowDownShort color="#10044a" size={15} />
+                          ) : (
+                            <BsArrowUpShort color="#10044a" size={15} />
+                          )
                         ) : (
-                          <BsArrowUpShort color="#10044a" size={15} />
-                        )
-                      ) : (
-                        ""
-                      )}
-                    </span>
-                  </th>
-                ))}
-              </tr>
-            ))}
-            {/* <tr>
+                          ""
+                        )}
+                      </span>
+                    </th>
+                  ))}
+                </tr>
+              ))}
+              {/* <tr>
               <th
                 colSpan={visibleColumns.length}
                 style={{
@@ -275,24 +310,39 @@ function Videos() {
                 />
               </th>
             </tr> */}
-          </thead>
-          <tbody {...getTableBodyProps()} className="table-body">
-            {rows.map((row) => {
-              prepareRow(row);
-              return (
-                <tr {...row.getRowProps()} className="data-row">
-                  {row.cells.map((cell) => {
-                    return (
-                      <td {...cell.getCellProps()} className="data">
-                        {cell.render("Cell")}
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+            </thead>
+            <tbody {...getTableBodyProps()} className="table-body">
+              {rows.map((row) => {
+                prepareRow(row);
+                return (
+                  <tr {...row.getRowProps()} className="data-row">
+                    {row.cells.map((cell) => {
+                      return (
+                        <td {...cell.getCellProps()} className="data">
+                          {cell.render("Cell")}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        className={
+          screen === 1 ? "add-video-section" : "inactive add-video-section"
+        }
+      >
+        <div className="add-video-container">
+          <BsArrowLeft
+            className="back-icon"
+            onClick={() => {
+              setScreen(0);
+            }}
+          />
+        </div>
       </div>
     </div>
   );

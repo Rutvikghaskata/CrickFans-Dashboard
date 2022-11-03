@@ -139,6 +139,7 @@
           color: #10044a;
           font-size: 26px;
           margin: 30px 0;
+          border-bottom: 2px solid #10044a;
         }
         .select-file{
           display: flex;
@@ -146,17 +147,18 @@
           height: 100px;
           width: 300px;
           border: 1px dashed #10044a;
-          border-radius:10px;
+          border-radius:12px;
           font-size: 20px;
           font-weight:600;
           color: #10044a;
           cursor: pointer;
 
           &.selected{
-            border: none;
+            border-color: white;
             background-color:#fff;
+            box-shadow: 5px 5px 16px -1px #10044a35;
           }
-        
+         
           .title{
             font-weight:700;
             margin-left: 20px;

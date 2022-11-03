@@ -347,6 +347,9 @@ function Videos() {
             className="back-icon"
             onClick={() => {
               setScreen(0);
+              setTimeout(() => {
+                setThumbnail(null);
+              }, 1000);
             }}
           />
           <div className="add-video-form">
@@ -373,7 +376,10 @@ function Videos() {
                 </div>
               ) : (
                 <>
-                  <IoMdAddCircle size={35} style={{ marginRight: 10 ,marginLeft: 20}} />
+                  <IoMdAddCircle
+                    size={35}
+                    style={{ marginRight: 10, marginLeft: 20 }}
+                  />
                   Add Thumbnail
                 </>
               )}
